@@ -9,7 +9,7 @@
                 <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
             </h2>
             <p class="date">
-                Published: {{ post.publish }} &nbsp; Author: {{ post.author.first_name }} {{ post.author.last_name }}
+                Published {{ post.publish }} by {{ post.author.first_name }} {{ post.author.last_name }}
             </p>
         </div>
     {% endfor %}

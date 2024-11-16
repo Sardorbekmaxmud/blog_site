@@ -7,8 +7,9 @@ from .models import Post
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'author', 'publish', 'status')
     list_filter = ('status', 'publish', 'created', 'author')
-    search_fields = ('title', 'body', 'author')
+    search_fields = ('title', 'body', 'author__username')
     prepopulated_fields = {'slug': ['title']}
     raw_id_fields = ('author',)
     date_hierarchy = 'publish'
-    ordering = ('publish', 'status')
+    ordering = ('status', 'publish')
+    readonly_fields = ['created', 'updated']

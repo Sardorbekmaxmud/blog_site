@@ -1,16 +1,19 @@
 {% extends 'blog/base.html' %}
-{% block title %} NEWS {% endblock %}
+{% block title %} IT-NEWS {% endblock %}
 
 {% block content %}
-    <h1>NEWS</h1>
+    <h1>
+        <a href="{% url 'blog:post-list' %}" id="link-color">IT-NEWS 💻</a>
+    </h1>
     {% for post in posts %}
         <div class="post">
             <h2>
                 <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
             </h2>
             <p class="date">
-                Published {{ post.publish }} by {{ post.author.first_name }} {{ post.author.last_name }}
+                Published {{ post.publish }} by {{ post.author }}
             </p>
+            {{ post.body|truncatewords:30|linebreaks }}
         </div>
     {% endfor %}
     {% include 'paginator.html' %}

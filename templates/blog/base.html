@@ -11,8 +11,10 @@
         {% block content %} {% endblock %}
     </div>
     <div id="sidebar">
-        <h2>Yangiliklar</h2>
-        <p>Dunyo yangiliklari</p>
+        <h2>
+            <a href="{% url 'blog:post-list' %}">IT-NEWS</a>
+        </h2>
+        <p>Informatsion texnalogiyalarga oid yangiliklar</p>
     </div>
 </body>
 </html>
